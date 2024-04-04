@@ -3,7 +3,6 @@ public class findInMountainArray {
         int[] arr = {1,6,3};
         int target = 6;
         System.out.println(findTarget(arr, target));
-        
     }
     static int findTarget(int[] arr, int target){
         int start = 0, end = arr.length - 1;
