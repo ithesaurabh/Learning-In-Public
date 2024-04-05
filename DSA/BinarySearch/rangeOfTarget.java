@@ -1,3 +1,4 @@
+package BinarySearch;
 
 public class rangeOfTarget {
     public static void main(String[] args) {

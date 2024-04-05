@@ -1,3 +1,4 @@
+package BinarySearch;
 public class peakIndexInAMountainArray {
     public static void main(String[] args) {
         int arr[] = { 0, 10, 15, 2 };

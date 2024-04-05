@@ -1,3 +1,4 @@
+package BinarySearch;
 //Find an element without using Arr.length
 
 public class PosOfNumInInfiniteArray {
