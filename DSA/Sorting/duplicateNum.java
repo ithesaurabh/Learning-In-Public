@@ -1,6 +1,5 @@
 package Sorting;
 
-import java.util.Arrays;
 
 public class duplicateNum {
     public static void main(String[] args) {

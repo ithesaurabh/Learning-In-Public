@@ -1,3 +1,4 @@
+package BinarySearch;
 public class CeilingOfANumber {
     public static void main(String[] args) {
         int[] arr = {12,15,45,46,78,98,99,109,120};
