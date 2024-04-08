@@ -1,0 +1,8 @@
+How to approach to a pattern question
+
+1. No. of lines = No. of Rows = No. of times the outer loop will run.
+2. Identify for every row no. 
+    *How many columns are there.
+    *Or types of element in the columns.
+
+3. What do you need to print ??
