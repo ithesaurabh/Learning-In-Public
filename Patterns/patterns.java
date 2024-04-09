@@ -19,7 +19,7 @@ public class patterns {
         System.out.println();
         pattern17(5);
         System.out.println();
-        pattern31(5);
+        pattern31(4);
         System.out.println();
     }
     static void pattern1(int n){
@@ -111,34 +111,37 @@ public class patterns {
     }
     static void pattern17(int n){
         for (int i = 1; i < 2*n; i++) {
-
-            int totalSpaces, startCols;
-            
+            int totalSpaces, Cols;
             if (i>n) {
                 totalSpaces = i - n;
-                startCols = 2*n - i; 
-            }
-            else{
+                Cols = 2*n - i; 
+            }else{
                 totalSpaces = n-i;
-                startCols = i;
+                Cols = i;
             } 
             
             for (int spaces = 1; spaces <=totalSpaces; spaces++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
-
-            for (int j = startCols; j > 0; j--) {
-                System.out.print(j);
+            for (int j = Cols; j > 0; j--) {
+                System.out.print(j +" ");
             }
-            for (int j = 2; j <= startCols; j++) {
-                System.out.print(j);
+            for (int j = 2; j <= Cols; j++) {
+                System.out.print(j+" ");
             }
             System.out.println();
         }
     }
     static void pattern31(int n){
-        for (int i = 1; i < 2*n; i++) {
-            
+        int oN = n;
+        n = 2*n;
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= n; j++) {
+                int ansAtEveryIndex =oN - Math.min(Math.min(i, j), Math.min(n-i, n-j));
+
+                System.out.print(ansAtEveryIndex);
+            }
+            System.out.println();
         }
     }
 }
