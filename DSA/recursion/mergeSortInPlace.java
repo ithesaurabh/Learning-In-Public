@@ -44,7 +44,5 @@ public class mergeSortInPlace {
         for (int l = 0; l < res.length; l++) {
             arr[start+l] = res[l];
         }
-        
     }
-
 }
