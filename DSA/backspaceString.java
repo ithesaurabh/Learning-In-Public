@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class backspaceString {
     public static void main(String[] args) {
-        String s = "ab#c", t = "ad#";
-        // String s = "ab##", t = "c#d#";
+        // String s = "ab#c", t = "ad#";
+        String s = "ab##", t = "c#d#";
         System.out.println(backspaceString(s, t));
     }
     static boolean backspaceString(String s, String t){
@@ -11,31 +11,18 @@ public class backspaceString {
         ArrayList<Character> two = new ArrayList<>();
         int sizeS =s.length()-1;
         int sizeT =t.length()-1;
-        int count = 1;
         while(sizeS>=0){
             if (s.charAt(sizeS) == 35) {
-                if (s.charAt(sizeS -1) == 35 ) {
-                    count++;
-                    sizeS--;
-                }
-                else{
-                    sizeS  = sizeS-(2*count);
-                }
+                    sizeS=sizeS-2;
+            
             }
             else{
                 one.add(s.charAt(sizeS--));
             }
         }
-        count = 1;
         while(sizeT>=0){
             if (t.charAt(sizeT) == 35) {
-                if (t.charAt(sizeT -1) == 35 ) {
-                    count++;
-                    sizeT--;
-                }
-                else{
-                    sizeT  = sizeT-(2*count);
-                }
+                    sizeT  = sizeT-2;
             }
             else{
                 two.add(t.charAt(sizeT--));
