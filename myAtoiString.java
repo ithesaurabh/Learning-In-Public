@@ -29,7 +29,7 @@ public class myAtoiString {
             }
         } else {
             if (number >= -2147483648L && number < 0) {
-                return number;
+                return -number;
             }
         }
         
