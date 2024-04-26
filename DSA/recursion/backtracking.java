@@ -19,7 +19,7 @@ int[][] path = new int[board.length][board[0].length];
         // System.out.println(mazePathAdv("",board,0, 0));
        
         // System.out.println(mazePathBacktracking("",board,0, 0));
-        mazePathBacktrackingAllAns("",board,3,3,path,1);
+        mazePathBacktrackingAllAns("",board,0,0,path,1);
     }
     static int mazeCount(int r, int c){
         int count = 0;
@@ -151,8 +151,8 @@ int[][] path = new int[board.length][board[0].length];
             mazePathBacktrackingAllAns(p + 'U',maze,r-1, c, mazeP,  step+1);
             mazePathBacktrackingAllAns(p + 'R',maze,r, c+1, mazeP,  step+1);
             mazePathBacktrackingAllAns(p + 'L',maze,r, c-1, mazeP,  step+1);
-            mazeP[r][c] = 0;
             maze[r][c] = true;
+            mazeP[r][c] = 0;
         }
         return ;
     }
