@@ -1,20 +1,25 @@
 package recursion;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class backtracking {
     public static void main(String[] args) {
         Boolean [][]board = 
                         {
                             {true,true,true},
-                            {true,false,true},
+                            {true,true,true},
                             {true,true,true}
                         };
-        System.out.println(mazeCount(3, 3));
-        System.out.println(mazePath("",3, 3));
-        System.out.println(mazePathIncDiagonal("",3, 3));
-        System.out.println(mazePathIncDiagonalWithObstacles("",3, 3));
-        System.out.println(mazePathAdv("",board,0, 0));
+
+int[][] path = new int[board.length][board[0].length];
+        // System.out.println(mazeCount(3, 3));
+        // System.out.println(mazePath("",3, 3));
+        // System.out.println(mazePathIncDiagonal("",3, 3));
+        // System.out.println(mazePathIncDiagonalWithObstacles("",3, 3));
+        // System.out.println(mazePathAdv("",board,0, 0));
+       
+        // System.out.println(mazePathBacktracking("",board,0, 0));
+        mazePathBacktrackingAllAns("",board,3,3,path,1);
     }
     static int mazeCount(int r, int c){
         int count = 0;
@@ -102,4 +107,54 @@ public class backtracking {
         }
         return Ans;
     }
+    static ArrayList<String> mazePathBacktracking(String p,Boolean maze[][],int r, int c){
+        ArrayList<String> Ans = new ArrayList<>();
+        if (r == maze.length -1 && c == maze[0].length-1 ) {
+            Ans.add(p);
+            return Ans;
+        }
+        if (r>maze.length -1 || c>maze[0].length-1 || c<0 || r<0) {
+            return Ans;
+        }
+        if (!maze[r][c]) {
+            return Ans;
+        }else{
+            maze[r][c] = false;
+            Ans.addAll(mazePathBacktracking(p + 'D',maze,r+1, c));
+            Ans.addAll(mazePathBacktracking(p + 'U',maze,r-1, c));
+            Ans.addAll(mazePathBacktracking(p + 'R',maze,r, c+1));
+            Ans.addAll(mazePathBacktracking(p + 'L',maze,r, c-1));
+            maze[r][c] = true;
+        }
+        return Ans;
+    }
+    static void mazePathBacktrackingAllAns(String p,Boolean maze[][],int r, int c, int[][] mazeP, int step){
+        
+        if (r == maze.length -1 && c == maze[0].length-1 ) {
+            mazeP[r][c] = step;
+            for (int[] ele : mazeP) {
+                System.out.println(Arrays.toString(ele));
+            }
+            System.out.println(p);
+            System.out.println();
+            return;
+        }
+        if (r>maze.length -1 || c>maze[0].length-1 || c<0 || r<0) {
+            return;
+        }
+        if (!maze[r][c]) {
+            return;
+        }else{
+            maze[r][c] = false;
+            mazeP[r][c] = step;
+            mazePathBacktrackingAllAns(p + 'D',maze,r+1, c, mazeP,  step+1);
+            mazePathBacktrackingAllAns(p + 'U',maze,r-1, c, mazeP,  step+1);
+            mazePathBacktrackingAllAns(p + 'R',maze,r, c+1, mazeP,  step+1);
+            mazePathBacktrackingAllAns(p + 'L',maze,r, c-1, mazeP,  step+1);
+            mazeP[r][c] = 0;
+            maze[r][c] = true;
+        }
+        return ;
+    }
+  
 }
