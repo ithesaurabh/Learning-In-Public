@@ -47,22 +47,20 @@ public class NQueens {
             }
         }
       
-        //check for left safe diagonal
+        //check for left diagonal
         int minLeft = Math.min(row, col);
         for (int i = 1; i <= minLeft; i++) {
             if (board[row - i][col -i]) {
                 return false;
             }
         }
-        //check for right safe diagonal
+        //check for right diagonal
         int minRight = Math.min(row, board.length - col-1);
         for (int i = 1; i <= minRight; i++) {
             if (board[row - i][col +i]) {
                 return false;
             }
         }
-
-
         return true;    
     }
 }
